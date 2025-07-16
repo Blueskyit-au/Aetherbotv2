@@ -2,9 +2,9 @@ const restify = require('restify');
 const { BotFrameworkAdapter } = require('botbuilder');
 const { EchoBot } = require('./bot'); // ✅ Match the class name in bot.js
 
-const server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-  console.log(`\nBot is listening on ${server.url}`);
+const port = process.env.PORT || 3978;
+server.listen(port, () => {
+  console.log(`\nBot is listening on port ${port}`);
 });
 
 const adapter = new BotFrameworkAdapter({
