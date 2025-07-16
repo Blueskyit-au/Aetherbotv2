@@ -1,3 +1,6 @@
+console.log("ENV: MicrosoftAppId =", process.env.MicrosoftAppId);
+console.log("ENV: MicrosoftAppPassword is", process.env.MicrosoftAppPassword ? "SET" : "NOT SET");
+
 const restify = require('restify');
 const { BotFrameworkAdapter } = require('botbuilder');
 const { EchoBot } = require('./bot'); // ✅ Match the class name
