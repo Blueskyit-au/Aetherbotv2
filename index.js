@@ -20,8 +20,11 @@ const adapter = new BotFrameworkAdapter({
 
 const bot = new EchoBot();
 
-server.post('/api/messages', async (req, res) => {
-  await adapter.processActivity(req, res, async (context) => {
+server.post('/api/messages', (req, res, next) => {
+  adapter.processActivity(req, res, async (context) => {
     await bot.run(context);
   });
+  // ✅ Call next() explicitly, since handler is not async
+  next();
 });
+
