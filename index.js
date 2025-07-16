@@ -5,7 +5,7 @@ const { EchoBot } = require('./bot'); // ✅ Match the class name in bot.js
 // Create HTTP server
 const server = restify.createServer(); // <-- THIS LINE WAS MISSING
 
-const port = process.env.PORT || 3978;
+const port = process.env.PORT || 8080;
 server.listen(port, () => {
   console.log(`\nBot is listening on port ${port}`);
 });
