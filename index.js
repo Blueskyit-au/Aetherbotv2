@@ -1,6 +1,6 @@
 const restify = require('restify');
 const { BotFrameworkAdapter } = require('botbuilder');
-const { MyBot } = require('./bot'); // or whatever your bot logic is
+const { EchoBot } = require('./bot'); // ✅ Match the class name in bot.js
 
 const server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -12,7 +12,7 @@ const adapter = new BotFrameworkAdapter({
   appPassword: process.env.MicrosoftAppPassword
 });
 
-const bot = new MyBot();
+const bot = new EchoBot(); // ✅ Match class name
 
 server.post('/api/messages', (req, res) => {
   adapter.processActivity(req, res, async (context) => {
